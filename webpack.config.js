@@ -1,7 +1,7 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebPackHtml = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
@@ -10,16 +10,22 @@ module.exports = {
   mode: isDevelopment ? 'development' : 'production',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: isDevelopment ? '[name].js' : '[name].[hash].js'
+    filename: isDevelopment ? '[name].js' : '[name].[hash].js',
   },
   module: {
     rules: [
       {
+        enforce: 'pre',
+        test: /\.(t|j)sx?$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+      },
+      {
         test: /\.(t|j)sx?$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
-        }
+          loader: 'babel-loader',
+        },
       },
       {
         test: /\.module.(s(a|c)ss)$/,
@@ -29,16 +35,16 @@ module.exports = {
             loader: 'css-loader',
             options: {
               modules: true,
-              sourceMap: isDevelopment
-            }
+              sourceMap: isDevelopment,
+            },
           },
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: isDevelopment
-            }
-          }
-        ]
+              sourceMap: isDevelopment,
+            },
+          },
+        ],
       },
       {
         test: /\.s(a|c)ss$/,
@@ -49,45 +55,45 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: isDevelopment
-            }
-          }
-        ]
+              sourceMap: isDevelopment,
+            },
+          },
+        ],
       },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
-        use: ['file-loader']
+        use: ['file-loader'],
       },
       {
         test: /\.html$/,
         use: [
           {
             loader: 'html-loader',
-            options: { minimize: !isDevelopment }
-          }
-        ]
-      }
-    ]
+            options: { minimize: !isDevelopment },
+          },
+        ],
+      },
+    ],
   },
   resolve: {
-    extensions: ['.js', '.jsx', 'ts', 'tsx', '.scss', '.gif', '.png', '.jpg', '.jpeg', '.svg']
+    extensions: ['.js', '.jsx', 'ts', 'tsx', '.scss', '.gif', '.png', '.jpg', '.jpeg', '.svg'],
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebPackHtml({
       template: './src/index.html',
-      filename: './index.html'
+      filename: './index.html',
     }),
     new MiniCssExtractPlugin({
       filename: isDevelopment ? '[name].css' : '[name].[hash].css',
-      chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css'
-    })
+      chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css',
+    }),
   ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 9000,
     watchContentBase: true,
-    progress: true
+    progress: true,
   },
-}
+};
