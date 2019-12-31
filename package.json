@@ -10,6 +10,11 @@
     "lint:fix": "eslint --ext .js --ext .jsx . --fix",
     "lint": "eslint . --ext .js --ext .jsx"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/diogoferraz/react-starter.git"
@@ -47,6 +52,7 @@
     "eslint-plugin-react-hooks": "^1.7.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^3.1.0",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.0",
     "path": "^0.12.7",
