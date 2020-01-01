@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { hot } from 'react-hot-loader/root';
 import messageActions from '../../actions/messageActions';
-import styles from './app.module';
+import styles from './styles';
 
 const App = () => {
   const dispatch = useDispatch();
