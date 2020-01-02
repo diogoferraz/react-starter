@@ -1,7 +1,7 @@
 const messageConstants = {
-  SUCCESS: 'ALERT_SUCCESS',
-  ERROR: 'ALERT_ERROR',
-  CLEAR: 'ALERT_CLEAR',
+  SUCCESS: 'MESSAGE_SUCCESS',
+  ERROR: 'MESSAGE_ERROR',
+  CLEAR: 'MESSAGE_CLEAR',
 };
 
 export default messageConstants;

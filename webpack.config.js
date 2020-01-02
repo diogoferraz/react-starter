@@ -64,6 +64,7 @@ module.exports = {
       chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css',
     }),
   ],
+  devtool: 'inline-source-map',
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,

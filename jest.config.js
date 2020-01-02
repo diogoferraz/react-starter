@@ -35,11 +35,11 @@ module.exports = {
   // A map from regular expressions to module names that allow to stub out resources, like images or styles with a single module.
   moduleNameMapper: {
     '^.+\\.(css|less|scss)$': 'identity-obj-proxy',
+    '.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
   },
-
-  // config option to specify how assets are transformed.
   transform: {
-    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': '<rootDir>/assetsTransformer.js',
-    '^.+\\.js$': 'babel-jest',
+    '^.+\\.[t|j]sx?$': 'babel-jest',
+    '.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
+
   },
 };

@@ -1,12 +1,12 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import { hot } from 'react-hot-loader/root';
+import { useSelector, useDispatch } from '../../hooks/react-redux';
 import messageActions from '../../actions/messageActions';
 import './styles';
 
 const App = () => {
   const dispatch = useDispatch();
-  const { message } = useSelector((state) => state.messageReducer);
+  const { message } = useSelector((state) => ({ message: state.messageReducer.message }));
   return (
     <div>
       <div className="intro">Hello World!</div>
