@@ -34,7 +34,12 @@ module.exports = {
 
   // A map from regular expressions to module names that allow to stub out resources, like images or styles with a single module.
   moduleNameMapper: {
-    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': '<rootDir>/assetsTransformer.js',
     '^.+\\.(css|less|scss)$': 'identity-obj-proxy',
+  },
+
+  // config option to specify how assets are transformed.
+  transform: {
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': '<rootDir>/assetsTransformer.js',
+    '^.+\\.js$': 'babel-jest',
   },
 };
