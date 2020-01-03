@@ -29,10 +29,22 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader',
+        exclude: /node_modules/,
+        loader: [
+          isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              sourceMap: isDevelopment,
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: isDevelopment,
+            },
+          },
         ],
       },
       {
