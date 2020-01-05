@@ -4,10 +4,10 @@
   "description": "ReactJS start project with webpack, babel, sass, minify and many other goodies",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build:prod && node server.js",
+    "start": "npm run build:prod & node server.js",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --hot --config webpack.config.js",
     "build:dev": "cross-env NODE_ENV=development webpack --config webpack.config.js",
-    "build:prod": "set NODE_ENV=production webpack --config webpack.config.js",
+    "build:prod": "cross-env NODE_ENV=production webpack --config webpack.config.js",
     "lint:fix": "eslint --ext .js --ext .jsx . --fix",
     "lint": "eslint . --ext .js --ext .jsx",
     "test": "jest",

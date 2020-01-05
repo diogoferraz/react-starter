@@ -22,7 +22,4 @@ app.get('*', (req, res) => {
   res.render(`${__dirname}/dist/index.html`);
 });
 
-const server = app.listen(PORT, () => { });
-const host = server.address().address;
-const { port } = server.address();
-console.log('App listening at http://%s:%s', host, port);
+app.listen(PORT, () => console.log(`Listening on port ${PORT}!`));
