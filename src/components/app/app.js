@@ -11,7 +11,7 @@ const App = () => {
   return (
     <div className={styles.main}>
       <MenuDrawer />
-      <div>
+      <div className={styles.content}>
         <div className={styles.intro}>Hello World!</div>
         <button type="submit" onClick={() => dispatch(messageActions.success('Success!'))}>Click here to dispatch success message</button>
         {message}
