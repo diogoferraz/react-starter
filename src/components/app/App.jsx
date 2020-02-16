@@ -1,5 +1,4 @@
 import React from 'react';
-import { hot } from 'react-hot-loader/root';
 import { useSelector, useDispatch } from '../../hooks/react-redux';
 import messageActions from '../../actions/messageActions';
 import styles from './styles';
@@ -16,4 +15,4 @@ const App = () => {
   );
 };
 
-export default hot(App);
+export default App;

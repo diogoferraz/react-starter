@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 import * as ReactReduxHooks from '../../hooks/react-redux';
 import messageActions from '../../actions/messageActions';
 import messageConstant from '../../constants/messageConstants';
@@ -19,7 +18,7 @@ describe('<App />', () => {
 
   beforeEach(() => {
     /* mocking store */
-    store = configureStore([thunk])({
+    store = configureStore([])({
       message: { message: '' },
     });
 
