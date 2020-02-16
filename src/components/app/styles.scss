@@ -1,4 +1,8 @@
+@import '../../assets/styles/index.scss';
+
 .intro {
-    color: black;
-    font-weight: bold;
+  @include themify($themes) {
+    color: themed('textColor');  
+  }
+  font-weight: bold;
 }

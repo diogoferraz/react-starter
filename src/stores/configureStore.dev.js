@@ -1,5 +1,4 @@
 import { applyMiddleware, createStore } from 'redux';
-import thunkMiddleware from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import monitorReducerEnhancer from '../enhancers/monitorReducer';
@@ -9,7 +8,7 @@ import rootReducer from '../reducers/rootReducer';
 
 const configureStore = (preloadedState) => {
   const sagaMiddleware = createSagaMiddleware();
-  const middlewares = [loggerMiddleware, thunkMiddleware, sagaMiddleware];
+  const middlewares = [loggerMiddleware, sagaMiddleware];
   const middlewareEnhancer = applyMiddleware(...middlewares);
   const enhancers = [middlewareEnhancer, monitorReducerEnhancer];
 
