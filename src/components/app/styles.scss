@@ -1,8 +1,10 @@
 @import '../../assets/styles/index.scss';
 
-.intro {
-  @include themify($themes) {
-    color: themed('textColor');  
+.app-container {
+  .intro {
+    @include themify($themes) {
+      color: themed('textColor');  
+    }
+    font-weight: bold;
   }
-  font-weight: bold;
 }

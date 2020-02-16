@@ -28,23 +28,25 @@ module.exports = {
         },
       },
       {
-        test: /\.scss$/,
-        exclude: /node_modules/,
+        test: /\.(sa|sc|c)ss$/,
+        use: [{
+          loader: MiniCssExtractPlugin.loader,
+          options: {
+            sourceMap: true,
+          },
+        }, {
+          loader: 'css-loader',
+        }, {
+          loader: 'sass-loader',
+        }],
+      },
+      {
+        test: /\.(sa|sc|c)ss$/,
+        exclude: /\.((sa|sc|c)ss)$/,
         loader: [
-          isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              sourceMap: isDevelopment,
-            },
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: isDevelopment,
-            },
-          },
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
         ],
       },
       {
