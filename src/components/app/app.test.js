@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
-import * as ReactReduxHooks from '../../hooks/react-redux';
+import * as ReactReduxHooks from '../../hooks/useReactRedux';
 import messageActions from '../../actions/messageActions';
 import messageConstant from '../../constants/messageConstants';
 

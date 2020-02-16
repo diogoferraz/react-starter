@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from '../../hooks/react-redux';
+import { useSelector, useDispatch } from '../../hooks/useReactRedux';
 import messageActions from '../../actions/messageActions';
 import styles from './styles';
 
