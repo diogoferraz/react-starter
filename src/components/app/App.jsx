@@ -1,20 +1,18 @@
 import React from 'react';
-import { useSelector, useDispatch } from '../../hooks/useReactRedux';
-import messageActions from '../../actions/messageActions';
-import './styles';
+import {
+  BrowserRouter as Router, Route, Switch, Redirect,
+} from 'react-router-dom';
+import Main from '../../layout/Main';
+import Login from '../../views/Login/Login';
 
-const App = () => {
-  const dispatch = useDispatch();
-  const { message } = useSelector((state) => ({ message: state.messageReducer.message }));
-  return (
-    <div className="theme-light">
-      <div className="app-container">
-        <div className="intro">Hello World!</div>
-        <button type="submit" onClick={() => dispatch(messageActions.success('Success!'))}>Click here to dispatch success message</button>
-        {message}
-      </div>
-    </div>
-  );
-};
+const App = () => (
+  <Router>
+    <Switch>
+      <Route path="/dashboard" render={(props) => <Main {...props} />} />
+      <Route path="/login" component={Login} />
+      <Redirect from="/" to="/dashboard/overview" />
+    </Switch>
+  </Router>
+);
 
 export default App;

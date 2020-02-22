@@ -5,9 +5,9 @@ import * as ReactReduxHooks from '../../hooks/useReactRedux';
 import messageActions from '../../actions/messageActions';
 import messageConstant from '../../constants/messageConstants';
 
-import App from './app';
+import Overview from './Overview';
 
-describe('<App />', () => {
+describe('<Overview />', () => {
   let wrapper;
   let useEffect;
   let store;
@@ -34,7 +34,7 @@ describe('<App />', () => {
     jest.spyOn(ReactReduxHooks, 'useDispatch').mockImplementation(() => store.dispatch);
 
     /* shallow rendering */
-    wrapper = shallow(<App store={store} />);
+    wrapper = shallow(<Overview store={store} />);
   });
   it('should render a button', () => {
     expect(wrapper.find('button')).toHaveLength(1);
