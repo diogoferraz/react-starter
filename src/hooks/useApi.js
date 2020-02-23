@@ -1,11 +1,10 @@
 import axios from 'axios';
+import useLocalstore from './useLocalstore';
 
-function useApi(props) {
-  const token = 'localhost';
-  // const { logout } = useAuthService();
-
+function useApi() {
+  const token = useLocalstore.getAuthToken() ? useLocalstore.getAuthToken() : undefined;
   const api = axios.create({
-    baseURL: 'localhost:3000/address',
+    baseURL: 'https://api-backend-nodejs.herokuapp.com/api/v1',
   });
 
   api.interceptors.request.use(async (config) => {
@@ -15,15 +14,6 @@ function useApi(props) {
     }
     return config;
   });
-
-  api.interceptors.response.use((response) => response, (error) => {
-    if (error && error.response && error.response.status === 401) {
-    //  logout();
-      props.history.push('/login');
-    }
-    return Promise.reject(error);
-  });
-
   return { api };
 }
 

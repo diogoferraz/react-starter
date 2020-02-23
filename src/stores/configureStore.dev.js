@@ -4,7 +4,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import monitorReducerEnhancer from '../enhancers/monitorReducer';
 import loggerMiddleware from '../middlewares/logger';
 import rootReducer from '../reducers/rootReducer';
-// import { watchSagas } from '../sagas';
+import { watchAuthSaga } from '../sagas';
 
 const configureStore = (preloadedState) => {
   const sagaMiddleware = createSagaMiddleware();
@@ -15,7 +15,7 @@ const configureStore = (preloadedState) => {
   const composeEnhancers = composeWithDevTools(...enhancers);
 
   const store = createStore(rootReducer, preloadedState, composeEnhancers);
-  // sagaMiddleware.run(watchSagas);
+  sagaMiddleware.run(watchAuthSaga);
 
   return store;
 };

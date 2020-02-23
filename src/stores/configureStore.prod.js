@@ -2,7 +2,7 @@ import { applyMiddleware, compose, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import monitorReducerEnhancer from '../enhancers/monitorReducer';
 import rootReducer from '../reducers/rootReducer';
-// import { watchSagas } from '../sagas';
+import { watchAuthSaga } from '../sagas';
 
 
 const configureStore = (preloadedState) => {
@@ -13,7 +13,7 @@ const configureStore = (preloadedState) => {
   const composeEnhancers = compose(...enhancers);
 
   const store = createStore(rootReducer, preloadedState, composeEnhancers);
-  // sagaMiddleware.run(watchSagas);
+  sagaMiddleware.run(watchAuthSaga);
 
 
   return store;

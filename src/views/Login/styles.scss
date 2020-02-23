@@ -1,7 +1,8 @@
 @import '../../assets//styles/index.scss';
 
 $login-background-color: #cccc;
-$login-button-color: #fff;
+$primary-color: #3c84b6;
+$light-primary: #dff1fe;
 
 .Login-content {
   height: 100vh;
@@ -23,7 +24,7 @@ $login-button-color: #fff;
   .Login-form {
     width: 60%;
     .Login-input {
-      background: #214964;
+      background: $light-primary;
       border-radius: 10px;  
     }
     .Login-button {
@@ -31,7 +32,7 @@ $login-button-color: #fff;
       .button {
         box-shadow: $box-shadow;
         border-radius: 5px;
-        background: $login-button-color;
+        background: $light-primary !important;
         @include button();
       }
     }
