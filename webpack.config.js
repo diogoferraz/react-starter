@@ -11,6 +11,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: isDevelopment ? '[name].js' : '[name].[hash].js',
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -89,5 +90,6 @@ module.exports = {
     port: 9000,
     watchContentBase: true,
     progress: true,
+    historyApiFallback: true,
   },
 };
