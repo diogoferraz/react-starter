@@ -1,0 +1,39 @@
+@import '../../assets//styles/index.scss';
+
+$login-background-color: #cccc;
+$login-button-color: #fff;
+
+.Login-content {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: $login-background-color;
+  .Login-title {
+    font-size: 18px;
+    padding: 10px 10px 50px 10px;
+    @include themify($themes) {
+      color: themed('textColor');  
+    }
+    img {
+      height: 100%;
+    }
+  }
+  .Login-form {
+    width: 60%;
+    .Login-input {
+      background: #214964;
+      border-radius: 10px;  
+    }
+    .Login-button {
+      text-align: end;
+      .button {
+        box-shadow: $box-shadow;
+        border-radius: 5px;
+        background: $login-button-color;
+        @include button();
+      }
+    }
+  }
+}

@@ -1,8 +1,27 @@
 @import '../../assets/styles/index.scss';
 
-.label {
-  
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  padding-left: 10px;
+  box-shadow: $box-shadow;
+  @include themify($themes) {
+    color: themed('textColor');
+  }
+  .label {
+    position: absolute;
+    text-transform: capitalize;
+    font-size: 15px;
+    font-weight: bold;
+  }
   .input {
-
+    height: 7vh;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
   }
 }

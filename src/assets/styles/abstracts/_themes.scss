@@ -6,7 +6,8 @@ $themes: (
     buttonTextTransform: none,
     buttonTextHoverColor: #64b0e7,
     buttonColor: #fff,
-    buttonBorder: 2px solid #fff
+    buttonBorder: 2px solid #fff,
+    border: 1px solid #64b0e7
   ),
   dark: (
     backgroundColor: #222,
@@ -15,6 +16,8 @@ $themes: (
     buttonTextTransform: uppercase,
     buttonTextHoverColor: #ddd,
     buttonColor: #333,
-    buttonBorder: 2px solid #aaa
+    buttonBorder: 2px solid #aaa,
+    border: 1px solid #ddd
   )
-)
+);
+$box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
