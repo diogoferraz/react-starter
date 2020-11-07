@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch } from '../../hooks/useReactRedux';
 import userActions from '../../actions/userActions';
-import Input from '../../components/Input/Input';
+import Input from '../../components/Atoms/Input';
+import Button from '../../components/Atoms/Button';
 import CompanhiaSites from '../../assets/images/companhiasites.png';
 import './styles';
 
@@ -14,22 +15,20 @@ const Login = () => {
   };
 
   return (
-    <>
-      <div className="Login-content">
-        <span className="Login-title"><img src={CompanhiaSites} alt="" /></span>
-        <form className="Login-form">
-          <div className="Login-input">
-            <Input type="text" name="user" label="Username" value={username} onChange={(ev) => setUsername(ev.target.value)} />
-          </div>
-          <div className="Login-input">
-            <Input type="password" name="password" label="Password" value={password} onChange={(ev) => setPassword(ev.target.value)} />
-          </div>
-          <div className="Login-button">
-            <button className="button" type="button" onClick={onSubmit}>Send</button>
-          </div>
-        </form>
-      </div>
-    </>
+    <div className="Login-content">
+      <span className="Login-title"><img src={CompanhiaSites} alt="" /></span>
+      <form className="Login-form">
+        <div className="Login-input">
+          <Input type="text" name="user" label="Username" value={username} onChange={(ev) => setUsername(ev.target.value)} />
+        </div>
+        <div className="Login-input">
+          <Input type="password" name="password" label="Password" value={password} onChange={(ev) => setPassword(ev.target.value)} />
+        </div>
+        <div className="Login-button">
+          <Button label="Send" onSubmit={onSubmit} />
+        </div>
+      </form>
+    </div>
   );
 };
 

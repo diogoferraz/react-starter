@@ -4,7 +4,6 @@ import monitorReducerEnhancer from '../enhancers/monitorReducer';
 import rootReducer from '../reducers/rootReducer';
 import { watchAuthSaga } from '../sagas';
 
-
 const configureStore = (preloadedState) => {
   const sagaMiddleware = createSagaMiddleware();
   const middlewares = [sagaMiddleware];
@@ -14,7 +13,6 @@ const configureStore = (preloadedState) => {
 
   const store = createStore(rootReducer, preloadedState, composeEnhancers);
   sagaMiddleware.run(watchAuthSaga);
-
 
   return store;
 };

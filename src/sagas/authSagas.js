@@ -21,7 +21,7 @@ export function* login(action) {
 
 export function* logout() {
   try {
-    yield put(userActions.logout());
+    yield call(useLocalstore.removeAuthToken);
   } catch (error) {
     throw new Error(error);
   }

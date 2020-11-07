@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from ' ../../components/Atoms/Button';
 import { useSelector, useDispatch } from '../../hooks/useReactRedux';
 import messageActions from '../../actions/messageActions';
 import './styles';
@@ -9,7 +10,7 @@ const Overview = () => {
   return (
     <>
       <div className="intro">Hello World!</div>
-      <button type="submit" onClick={() => dispatch(messageActions.success('Success!'))}>Click here to dispatch success message</button>
+      <Button label="Click here to dispatch success message" onSubmit={() => dispatch(messageActions.success('Success!'))} />
       {message}
     </>
   );

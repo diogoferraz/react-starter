@@ -7,15 +7,13 @@ import './styles';
 const Layout = () => {
   const getRoutes = () => routes.map(({ path, component, layout }) => (<PrivateRoute key={path} path={layout + path} component={component} />));
   return (
-    <>
-      <div className="theme-light">
-        <div className="app-container">
-          <main>
-            <Switch>{getRoutes()}</Switch>
-          </main>
-        </div>
+    <div className="theme-light">
+      <div className="app-container">
+        <main>
+          <Switch>{getRoutes()}</Switch>
+        </main>
       </div>
-    </>
+    </div>
   );
 };
 

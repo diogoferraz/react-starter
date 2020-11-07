@@ -1,0 +1,8 @@
+@import '../../assets/styles/index.scss';
+
+.button {
+  box-shadow: $box-shadow;
+  border-radius: 5px;
+  background: $light-primary !important;
+  @include button();
+}

@@ -3,16 +3,21 @@ import { updateObject } from '../helpers/reducerUtility';
 
 const initialState = {
   user: {},
+  authenticated: true,
   fetching: false,
   success: false,
   failure: false,
 };
 
 const loginRequest = (state) => updateObject(state, { fetching: true, success: false, failure: false });
+
 const loginSuccess = (state, action) => updateObject(state, {
-  user: action.payload.user, fetching: false, success: true, failure: false,
+  user: action.payload.user, authenticated: true, fetching: false, success: true, failure: false,
 });
-const loginFailure = (state) => updateObject(state, { fetching: false, success: false, failure: true });
+
+const loginFailure = (state) => updateObject(state, {
+  authenticated: false, fetching: false, success: false, failure: true,
+});
 
 export default function userReducer(state = initialState, action) {
   switch (action.type) {
