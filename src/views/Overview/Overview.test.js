@@ -4,6 +4,7 @@ import configureStore from 'redux-mock-store';
 import * as ReactReduxHooks from '../../hooks/useReactRedux';
 import messageActions from '../../actions/messageActions';
 import messageConstant from '../../constants/messageConstants';
+import Button from '../../components/Atoms/Button';
 
 import Overview from './Overview';
 
@@ -37,7 +38,7 @@ describe('<Overview />', () => {
     wrapper = shallow(<Overview store={store} />);
   });
   it('should render a button', () => {
-    expect(wrapper.find('button')).toHaveLength(1);
+    expect(wrapper.find(Button)).toHaveLength(1);
   });
   it('synchronous actions should render success', () => {
     const message = 'Success!';

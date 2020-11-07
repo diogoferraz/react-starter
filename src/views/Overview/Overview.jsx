@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from ' ../../components/Atoms/Button';
+import Button from '../../components/Atoms/Button';
 import { useSelector, useDispatch } from '../../hooks/useReactRedux';
 import messageActions from '../../actions/messageActions';
 import './styles';
